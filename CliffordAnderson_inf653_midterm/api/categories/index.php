@@ -14,3 +14,7 @@ if ($method === 'OPTIONS') {
 
 $database = new Database();
 $db = $database->connect();
+
+if ($method == 'GET'){
+    require_once read.php;
+}
