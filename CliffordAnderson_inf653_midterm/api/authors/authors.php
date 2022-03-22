@@ -7,11 +7,10 @@
   include_once '../../config/Database.php';
   include_once '../../models/Author.php';
 
-  // Instantiate DB & conne/ct
+  // Instantiate DB & connect
   $database = new Database();
-  $db = $database->connect();
 
-  // Instantiate blog post object
+  // Instantiate Author object
   $authority = new Author($db);
 
   // Blog post query
