@@ -24,14 +24,14 @@
   $quote->authorId = $data->authorId;
   $quote->categoryId = $data->categoryId;
 
-  function isValid($id, $model) {
+  /*function isValid($id, $model) {
     $model->id = $id;
     $modelResult = $model->read_single();
     return $modelResult;
-  }
+  }*/
 
   // if authorId exists:
-   $authorExists = isValid($authorId, $author;
+  /* $authorExists = isValid($authorId, $author;
   // if categoryId exists:
   $categoryExists = isValid($categoryId, $category)
   // if quote id exists:
@@ -50,5 +50,23 @@
     echo json_encode(
       array('message' => 'authorId Not Found')
     );
+  }*/
+  $data = json_decode(file_get_contents("php://input"));
+
+  $post->quote = $data->quote;
+  $post->authorId = $data->authorId;
+  $post->categoryId = $data->categoryId;
+
+
+
+  //Create post
+  if($post->create()){
+    echo json_encode(
+      array('id' => $db->lastInsertId(), 'quote' => $post->quote, 'authorId' => $post->authorId, 'categoryId' => $post->categoryId)
+    );
+} else {
+      echo json_encode(
+          array('message' => 'Post Not Created')
+      );
   }
 }
