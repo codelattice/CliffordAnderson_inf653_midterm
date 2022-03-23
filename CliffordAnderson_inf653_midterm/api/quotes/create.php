@@ -20,12 +20,13 @@
 
   $data = json_decode(file_get_contents("php://input"));
 
-  $quotable->author = $data->author;
-
+  $quotable->quote = $data->quote;
+  $quotable->authorId = $data->author;
+  $quotable->categoryId = $data->categoryId;
   //Create post
   if($quotable->create()){
     echo json_encode(
-      array('id' => $db->lastInsertId(), 'category' => $quotable->author)
+      array('id' => $db->lastInsertId(), 'quote' => $quotable->quote, 'authorId' => $quotable->authorId, 'categoryId' => $quotable->categoryId)
     );
 } else {
       echo json_encode(
