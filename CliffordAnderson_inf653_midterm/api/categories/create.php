@@ -13,12 +13,12 @@
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate blog post object
+  // Instantiate Category object
   $categorical = new Category($db);
 
-  $categorical->category = isset($_POST['category']) ? $_POST['category'] : die(); //changed from $_GET to $_POST
+  /*$categorical->category = isset($_GET['category']) ? $_GET['category'] : die(); //changed from $_GET to $_POST*/
 
-  // Get raw posted data
+  // Get raw data
 
   $data = json_decode(file_get_contents("php://input"));
 
