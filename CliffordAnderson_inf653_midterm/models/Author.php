@@ -74,25 +74,16 @@
         //Create query
         $query = 'INSERT INTO '.$this->table.'
           SET
-             id = :id,
-             quote = :quote,
-             author = :author,
-             category = :category';
+             author = :author;
           
           //Prepare statement
         $stmt = $this->conn->prepare($query);
 
         //Clean data
-        $this->title = htmlspecialchars(strip_tags($this->title));
-        $this->body = htmlspecialchars(strip_tags($this->body));
         $this->author = htmlspecialchars(strip_tags($this->author));
-        $this->category_id = htmlspecialchars(strip_tags($this->category_id));
 
         //Bind data
-        $stmt->bindParam(':id', $this->title);
-        $stmt->bindParam(':quote', $this->quote);
         $stmt->bindParam(':author', $this->author);
-        $stmt->bindParam(':category', $this->category_id);
 
         //Execute query
 
