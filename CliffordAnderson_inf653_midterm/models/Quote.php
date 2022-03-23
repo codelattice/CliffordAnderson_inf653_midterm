@@ -24,8 +24,8 @@
           $query = 'SELECT
                 quotes.id as id,
                 quotes.quote as quote,
-                quotes.authorId as authorId,
-                quotes.categoryId as categoryId
+                quotes.authorId as author,
+                quotes.categoryId as category
               FROM
                 '.$this->table.'';
           //Prepare statement
