@@ -1,5 +1,7 @@
 <?php
 
+include('../../config/Database.php');
+
 $database = new Database();
 $db = $database->connect();
 require_once('../../models/Category.php');
