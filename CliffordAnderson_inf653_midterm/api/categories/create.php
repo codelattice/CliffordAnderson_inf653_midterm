@@ -14,24 +14,24 @@
   $db = $database->connect();
 
   // Instantiate blog post object
-  $post = new Category($db);
+  $categorical = new Category($db);
 
-  $post->category = isset($_POST['category']) ? $_POST['category'] : die(); //changed from $_GET to $_POST
+  $categorical->category = isset($_POST['category']) ? $_POST['category'] : die(); //changed from $_GET to $_POST
 
   // Get raw posted data
 
   $data = json_decode(file_get_contents("php://input"));
 
-  $post->category = $data->category;
+  $categorical->category = $data->category;
 
   //Create post
-  if($post->create()){
+  if($categorical->create()){
     echo json_encode(
-      array('id' => $db->lastInsertId(), 'category' => $post->category)
-      //array($post)
+      array('id' => $db->lastInsertId(), 'category' => $categorical->category)
+      //array($categorical)
     );
 } else {
       echo json_encode(
-          array('message' => 'Post Not Created')
+          array('message' => 'Category Not Created')
       );
   }
