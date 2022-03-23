@@ -58,9 +58,9 @@
       $stmt->execute();
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
       $this->id = $row['id'];
-      //$this->body = $row['quote'];
       $this->author = $row['author'];
-      //$this->category_id = $row['category'];
+        
+      return $stmt;
       }
       //Create Post
       public function create(){
