@@ -1,10 +1,10 @@
 <?php
   //Headers
-  header('Access-Control-Allow-Origin: *');
+  /*header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
   header('Access-Control-Allow-Methods: POST');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
-  Access-Control-Allow-Methods, Authorization, X-Requested-With');
+  Access-Control-Allow-Methods, Authorization, X-Requested-With');*/
   
   include_once '../../config/Database.php';
   include_once '../../models/Quote.php';
@@ -20,7 +20,7 @@
 
   $data = json_decode(file_get_contents("php://input"));
 
-  $post->id = $data->id;
+  //$post->id = $data->id; commenting out for testing purposes
   $post->quote = $data->quote;
   $post->authorId = $data->authorId;
   $post->categoryId = $data->categoryId;
