@@ -85,10 +85,8 @@
         $this->category_id = htmlspecialchars(strip_tags($this->category_id));*/
 
         //Bind data
-        $stmt->bindParam(':id', $this->title);
-        $stmt->bindParam(':quote', $this->quote);
-        $stmt->bindParam(':author', $this->author);
-        $stmt->bindParam(':category', $this->category_id);
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':quote', $this->category);
 
         //Execute query
 
