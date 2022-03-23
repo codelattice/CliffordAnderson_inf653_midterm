@@ -32,8 +32,8 @@
         $post_item = array(
            'id' => $id,
            'quote' => $quote,
-           'authorId' => $authorId,
-           'categoryId' => $categoryId
+           'author' => $authorId,
+           'category' => $categoryId
            //'body' => html_entity_decode($body),
            //'author' => $author,
            //'category' => $category
