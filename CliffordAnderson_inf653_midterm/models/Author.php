@@ -107,7 +107,7 @@
         //$this->author = htmlspecialchars(strip_tags($this->author));
 
         //Bind data
-        //$stmt->bindParam(':author', $this->author);
+        $stmt->bindParam(':author', $this->author);
 
         //Execute query
 
