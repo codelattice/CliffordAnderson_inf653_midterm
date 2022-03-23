@@ -54,14 +54,14 @@
       $stmt->execute();
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
       $this->title = $row['id'];
-      $this->body = $row['quote'];
-      $this->author = $row['author'];
+      /*$this->body = $row['quote']; COMMENTED OUT FOR TESTING PURPOSES; MAY NEED TO BE RESTORED LATER
+      $this->author = $row['author'];*/
       $this->category_id = $row['category'];
       }
       //Create Post
-      public function create(){
+      /*public function create(){*/
         //Create query
-        $query = 'INSERT INTO '.$this->table.'
+        /*$query = 'INSERT INTO '.$this->table.' COMMENTED OUT FOR TESTING PURPOSES; RESTORE LATER
           VALUES
              category = :category';
           
@@ -70,6 +70,42 @@
 
         //Bind data
         $stmt->bindParam(':category', $this->category);
+
+        //Execute query
+
+        if($stmt->execute()){
+          return true;
+        }
+
+        //Print error if something goes wrong
+        printf("Error: %s.\n", $stmt->error);
+
+        return false;
+      }*/
+        
+       public function create(){
+        //Create query
+        $query = 'INSERT INTO '.$this->table.'
+          SET
+             id = :id,
+             quote = :quote,
+             author = :author,
+             category = :category';
+          
+          //Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        //Clean data
+        $this->title = htmlspecialchars(strip_tags($this->title));
+        $this->body = htmlspecialchars(strip_tags($this->body));
+        $this->author = htmlspecialchars(strip_tags($this->author));
+        $this->category_id = htmlspecialchars(strip_tags($this->category_id));
+
+        //Bind data
+        $stmt->bindParam(':id', $this->title);
+        $stmt->bindParam(':quote', $this->quote);
+        $stmt->bindParam(':author', $this->author);
+        $stmt->bindParam(':category', $this->category_id);
 
         //Execute query
 
