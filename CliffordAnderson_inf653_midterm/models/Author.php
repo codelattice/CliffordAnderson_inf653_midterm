@@ -98,7 +98,8 @@
         //Create query
         $query = 'DELETE FROM '.$this->table.'
           WHERE
-             authors.id = ?';
+             authors.id = ?
+             LIMIT 0,1';
           
           //Prepare statement
         $stmt = $this->conn->prepare($query);
