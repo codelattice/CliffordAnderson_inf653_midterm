@@ -6,30 +6,34 @@
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
   Access-Control-Allow-Methods, Authorization, X-Requested-With');*/
   
-  include_once '../../config/Database.php';
-  include_once '../../models/Quotes.php';
+  include_once '../../models/Quote.php';
+  include_once '../../models/Author.php';
+  include_once '../../models/Category.php';
 
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate Quotes object
-  $quotable = new Quotes($db);
+  // Creates Quote object
+  $quotable = new Quote($db);
 
-  // Get raw posted data
-
+  // Decodes json and reads data into a string
   $data = json_decode(file_get_contents("php://input"));
 
-  $quotable->quote = $data->quote;
-  $quotable->authorId = $data->author;
-  $quotable->categoryId = $data->categoryId;
-  //Create post
-  if($quotable->create()){
+  $quote->quote = $data->quote;
+  $quote->authorId = $data->authorId;
+  $quote->categoryId = $data->categoryId;
+
+  $authorIdExists = IsValid($quote->authorId,$quote);
+  $categoryIdExists = IsValid($quote->categoryId,$quote);
+
+  if(!$categoryIdExists){
     echo json_encode(
-      array('id' => $db->lastInsertId(), 'quote' => $quotable->quote, 'authorId' => $quotable->authorId, 'categoryId' => $quotable->categoryId)
+        array('message' => 'categoryId Not Found')
     );
-} else {
-      echo json_encode(
-          array('message' => 'Post Not Created')
-      );
+  }else if(!$authorIdExists){
+    echo json_encode(
+        array('message' => 'authorId Not Found')
+    );
   }
+}
