@@ -20,13 +20,13 @@
 
   $data = json_decode(file_get_contents("php://input"));
 
-  //Create post
+  //Delete entry and return array
   if($post->delete()){
     echo json_encode(
-      array('id' => $db->lastInsertId(), 'author' => $post->author)
+      array("id" => $this-id)
     );
 } else {
       echo json_encode(
-          array('message' => 'Post Not Created')
+          array('message' => 'Nothing to delete')
       );
   }
