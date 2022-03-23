@@ -1,42 +1,38 @@
 <?php
-
   //Headers
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
   
   include_once '../../config/Database.php';
-  include_once '../../models/Quote.php';
-  include_once '../../models/Category.php';
   include_once '../../models/Author.php';
+  include_once '../../models/Category.php';
+  include_once '../../models/Quote.php';
 
-  // Instantiate DB & conne/ct
+  // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate blog post object
-  $quoteObject = new Quote($db);
+  // Instantiate Quote object
+  $post = new Quote($db);
 
   // Blog post query
-  $quotation = $quoteObject->read();
+  $result = $post->read();
   
   // Get row count
-  $num = $quotation->rowCount();
+  $num = $result->rowCount();
 
   //Check if any posts
   if($num > 0){
       // Post array
       $posts_arr = array();
-  
-      while ($row = $quotation->fetch(PDO::FETCH_ASSOC)){
+
+      while ($row = $result->fetch(PDO::FETCH_ASSOC)){
         extract($row);
         $post_item = array(
            'id' => $id,
            'quote' => $quote,
-           'author' => $authorId,
-           'category' => $categoryId
-           //'body' => html_entity_decode($body),
-           //'author' => $author,
-           //'category' => $category
+           'author' => $author,
+           'category' => $category
         );
 
         // Push to "data"
