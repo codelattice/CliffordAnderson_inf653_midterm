@@ -40,12 +40,12 @@
 
         //Create query
         $query = 'SELECT
-        authors.id as id,
-        authors.author as author
+        a.id as id,
+        a.author as author
       FROM
-        '.$this->table.'
+        '.$this->table.' a
       WHERE
-        author.id = ?
+        a.id = ?
       LIMIT 0,1';
         
       // Prepare statement
