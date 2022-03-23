@@ -79,22 +79,22 @@
         $query = 'INSERT INTO '.$this->table.'
           SET
              quote = :quote,
-             author = :authorId,
-             category = :categoryId';
+             authorId = :authorId,
+             categoryId = :categoryId';
           
           //Prepare statement
         $stmt = $this->conn->prepare($query);
 
         //Clean data
-        /*$this->title = htmlspecialchars(strip_tags($this->title)); COMMENTING OUT FOR TESTING PURPOSES
-        $this->body = htmlspecialchars(strip_tags($this->body));
-        $this->author = htmlspecialchars(strip_tags($this->author));
-        $this->category_id = htmlspecialchars(strip_tags($this->category_id));*/
+        //$this->title = htmlspecialchars(strip_tags($this->title)); COMMENTING OUT FOR TESTING PURPOSES
+        $this->quote = htmlspecialchars(strip_tags($this->quote));
+        $this->authorId = htmlspecialchars(strip_tags($this->authorId));
+        $this->category_id = htmlspecialchars(strip_tags($this->categoryId));
 
         //Bind data
         $stmt->bindParam(':quote', $this->quote);
-        $stmt->bindParam(':author', $this->author);
-        $stmt->bindParam(':category', $this->category); //removed _id from the end of this->category_id//
+        $stmt->bindParam(':author', $this->authorId);
+        $stmt->bindParam(':category', $this->categoryId); //removed _id from the end of this->category_id//
 
         //Execute query
 
