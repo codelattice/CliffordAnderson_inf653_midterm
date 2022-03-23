@@ -27,7 +27,8 @@
                 quotes.authorId as author,
                 quotes.categoryId as category
               FROM
-                '.$this->table.'';
+                '.$this->table.'
+                LIMIT 0,1';
           //Prepare statement
           $stmt = $this->conn->prepare($query);
 
