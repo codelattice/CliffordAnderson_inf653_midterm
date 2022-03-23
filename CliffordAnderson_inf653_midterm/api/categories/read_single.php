@@ -31,7 +31,7 @@
 
 if($categorical->read_single()){
     echo json_encode(
-      ($post_array)
+      ($post_arr)
     );
 } else {
       echo json_encode(
