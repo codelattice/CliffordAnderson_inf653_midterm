@@ -8,9 +8,9 @@
   include_once '../../models/Category.php';
   include_once '../../models/Author.php';
 
-  if (isset($id)){
+  /*if (isset($quote->id)){
     require('read_single.php');
-  }
+  }*/
 
   // Instantiate DB & connect
   $database = new Database();
