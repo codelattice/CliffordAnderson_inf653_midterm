@@ -13,9 +13,20 @@ if ($method === 'OPTIONS') {
     header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
     header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
 }
-else if ($method === 'GET'){
-    require('read.php');
+
+if ($method === 'GET'){
+    if (isset($_GET['id']) ){
+        require('read_single.php');
+    }
+    else{
+        require('read.php');
+    }
 }
-else if ($method === 'POST'){
+
+if ($method === 'POST'){
     require('create.php');
+}
+
+if ($method === 'PUT'){
+    require('update.php');
 }
