@@ -18,6 +18,12 @@ if ($method === 'GET'){
     if (isset($_GET['id']) ){
         require('read_single.php');
     }
+    else if (isset($_GET['authorId']{
+        require('read_single.php');
+    }
+    else if (isset($_GET['categoryId']{
+        require('read_single.php');
+    }
     else{
         require('read.php');
     }
