@@ -89,4 +89,7 @@
 
         return false;
       }
+    
+   /* public function update(){
+      $query = 'INSERT */
   }
