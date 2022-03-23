@@ -7,28 +7,25 @@
   Access-Control-Allow-Methods, Authorization, X-Requested-With');*/
   
   include_once '../../config/Database.php';
-  include_once '../../models/Quote.php';
+  include_once '../../models/Quotes.php';
 
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate blog post object
-  $post = new Quote($db);
+  // Instantiate Quotes object
+  $quotable = new Quotes($db);
 
   // Get raw posted data
 
   $data = json_decode(file_get_contents("php://input"));
 
-  //$post->id = $data->id; commenting out for testing purposes
-  $post->quote = $data->quote;
-  $post->authorId = $data->authorId;
-  $post->categoryId = $data->categoryId;
+  $quotable->author = $data->author;
 
   //Create post
-  if($post->create()){
+  if($quotable->create()){
     echo json_encode(
-      array('id' => $db->lastInsertId(), 'quote' => $post->quote, 'authorId' => $post->authorId, 'categoryId' => $post->categoryId)
+      array('id' => $db->lastInsertId(), 'category' => $quotable->author)
     );
 } else {
       echo json_encode(
