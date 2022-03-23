@@ -12,5 +12,5 @@ if ($method === 'OPTIONS') {
     header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
 }
 else if ($method === 'GET'){
-    require('read.php);
+    require('read.php');
 }
