@@ -67,6 +67,9 @@
       $this->body = $row['quote'];
       $this->authorId = $row['authorId'];
       $this->categoryId = $row['categoryId'];
+        
+      return $stmt->rowCount();
+
       }
       //Create Post
       public function create(){
