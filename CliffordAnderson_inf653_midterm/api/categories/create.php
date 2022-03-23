@@ -16,7 +16,7 @@
   // Instantiate blog post object
   $post = new Category($db);
 
-  $post->category = isset($_GET['category']) ? $_GET['category'] : die();
+  $post->category = isset($_POST['category']) ? $_POST['category'] : die(); //changed from $_GET to $_POST
 
   // Get raw posted data
 
