@@ -28,7 +28,7 @@
   if($post->create()){
     echo json_encode(
       //array('message' => 'Post Created')
-      array(':id' => $db->lastInsertId(), ':category' => $post->category)
+      array('id' => $db->lastInsertId(), 'category' => $post->category)
     );
 } else {
       echo json_encode(
