@@ -30,3 +30,7 @@ if ($method === 'POST'){
 if ($method === 'PUT'){
     require('update.php');
 }
+
+if ($method === 'DELETE'){
+    require('delete.php');
+}
