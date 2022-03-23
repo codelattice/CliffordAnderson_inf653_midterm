@@ -29,4 +29,14 @@
   );
 
   //Make JSON
-  print_r(json_encode($post_arr));
+  //print_r(json_encode($post_arr));
+
+if($post->read_single()){
+    echo json_encode(
+      ($post_array)
+    );
+} else {
+      echo json_encode(
+          array('message' => 'authorId Not Found')
+      );
+  }
