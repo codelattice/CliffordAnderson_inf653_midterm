@@ -14,7 +14,12 @@ if ($method === 'OPTIONS') {
     header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
 }
 else if ($method === 'GET'){
-    require('read.php');
+    if (isset($id) === TRUE){
+        require('read_once.php');
+    }
+    else{
+        require('read.php');
+    }
 }
 else if ($method === 'POST'){
     require('create.php');
