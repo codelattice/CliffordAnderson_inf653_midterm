@@ -29,4 +29,13 @@
   );
 
   //Make JSON
+if($post->read_single()){
+/*echo json_encode(
+      array('id' => $post->id, 'category' => $post->category)
+    );*/
   print_r(json_encode($post_arr));
+} else {
+      echo json_encode(
+          array('message' => 'categoryId Not Found')
+      );
+  }
