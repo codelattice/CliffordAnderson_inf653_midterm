@@ -1,10 +1,10 @@
 <?php
   //Headers
-  header('Access-Control-Allow-Origin: *');
+  /*header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
   header('Access-Control-Allow-Methods: POST');
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
-  Access-Control-Allow-Methods, Authorization, X-Requested-With');
+  Access-Control-Allow-Methods, Authorization, X-Requested-With');*/
   
   include_once '../../config/Database.php';
   include_once '../../models/Author.php';
@@ -20,12 +20,12 @@
 
   $data = json_decode(file_get_contents("php://input"));
 
-  $post->category_id = $data->category_id;
+  $post->author = $data->author;
 
   //Create post
   if($post->create()){
     echo json_encode(
-      array('message' => 'Post Created')
+      array('id' => $db->lastInsertId(), 'author' => $post->author)
     );
 } else {
       echo json_encode(
