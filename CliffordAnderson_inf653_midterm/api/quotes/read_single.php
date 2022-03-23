@@ -14,7 +14,11 @@
   $post = new Quote($db);
 
   // Get ID
-  $post->id = isset($_GET['id']) ? $_GET['id'] : die();
+  /*if isset*/$post->id = isset($_GET['id']) ? $_GET['id'] : die();
+  $post->quote = isset($_GET['quote']) ? $_GET['quote'] : die();
+  $post->authorId = isset($_GET['authorId']) ? $_GET['authorId'] : die();
+  $post->categoryId = isset($_GET['categoryId']) ? $_GET['categoryId'] : die();
+
 
   // Get post
 
@@ -23,9 +27,9 @@
   // Create array
   $post_arr = array(
       'id' => $post->id,
-      'quote' => $post->title,
-      'author' => $post->author,
-      'category' => $post->category_id
+      'quote' => $post->quote,
+      'authorId' => $post->authorId,
+      'categoryId' => $post->categoryId
   );
 
   //Make JSON
