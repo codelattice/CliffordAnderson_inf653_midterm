@@ -4,7 +4,7 @@ include('../../config/Database.php');
 
 $database = new Database();
 $db = $database->connect();
-require_once('../../models/Category.php');
+require('../../models/Category.php');
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
