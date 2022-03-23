@@ -93,3 +93,30 @@
    /* public function update(){
       $query = 'INSERT */
   }
+
+      public function delete(){
+        //Create query
+        $query = 'DELETE FROM '.$this->table.'
+          WHERE
+             authors.id = ?';
+          
+          //Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        //Clean data
+        //$this->author = htmlspecialchars(strip_tags($this->author));
+
+        //Bind data
+        //$stmt->bindParam(':author', $this->author);
+
+        //Execute query
+
+        if($stmt->execute()){
+          return true;
+        }
+
+        //Print error if something goes wrong
+        printf("Error: %s.\n", $stmt->error);
+
+        return false;
+      }
