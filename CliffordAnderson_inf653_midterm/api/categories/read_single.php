@@ -30,8 +30,8 @@
   //print_r(json_encode($post_arr));
 
 if($post->read_single()){
-    echo json_encode(
-      ($post_arr)
+echo json_encode(
+      array('id' => $post->id, 'category' => $post->category)
     );
 } else {
       echo json_encode(
