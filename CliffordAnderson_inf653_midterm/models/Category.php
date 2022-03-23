@@ -39,7 +39,7 @@
         //Create query
         $query = 'SELECT
         c.id as id,
-        c.author as author
+        c.category as category
       FROM
         '.$this->table.' c
       WHERE
