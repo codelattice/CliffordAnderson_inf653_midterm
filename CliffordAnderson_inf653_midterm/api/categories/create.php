@@ -16,21 +16,19 @@
   // Instantiate Category object
   $categorical = new Category($db);
 
-  /*$categorical->category = isset($_GET['category']) ? $_GET['category'] : die(); //changed from $_GET to $_POST*/
-
-  // Get raw data
+  // Get raw posted data
 
   $data = json_decode(file_get_contents("php://input"));
 
-  $categorical->category = $data->category;
+  $categorical->author = $data->author;
 
   //Create post
   if($categorical->create()){
     echo json_encode(
-      array('id' => $db->lastInsertId(), 'category' => $categorical->category)
+      array('id' => $db->lastInsertId(), 'author' => $categorical->author)
     );
 } else {
       echo json_encode(
-          array('message' => 'Category Not Created')
+          array('message' => 'Post Not Created')
       );
   }
