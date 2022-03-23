@@ -36,6 +36,6 @@ if($post->read_single()){
   print_r(json_encode($post_arr));
 } else {
       echo json_encode(
-          array('message' => 'categoryId Not Found')
+          array('message' => 'No Quotes Found')
       );
   }
