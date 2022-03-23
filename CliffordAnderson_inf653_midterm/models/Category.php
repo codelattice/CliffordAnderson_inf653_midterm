@@ -38,20 +38,11 @@
 
         //Create query
         $query = 'SELECT
-        c.name as category_name,
-        p.id,
-        p.category_id,
-        p.title,
-        p.body,
-        p.author,
-        p.created_at
+                categories.id as id,
+                categories.category as category
       FROM
-        '.$this->table.' p
-      LEFT JOIN
-        categories c ON p.category_id = c.id
-      WHERE
-        p.id = ?
-        LIMIT 0,1';
+        '.$this->table.'';
+        }
         
       // Prepare statement
       $stmt = $this->conn->prepare($query);
