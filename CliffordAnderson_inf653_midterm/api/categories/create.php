@@ -25,7 +25,7 @@
   //Create post
   if($categorical->create()){
     echo json_encode(
-      array('id' => $db->lastInsertId(), 'author' => $categorical->author)
+      array('id' => $db->lastInsertId(), 'category' => $categorical->author)
     );
 } else {
       echo json_encode(
