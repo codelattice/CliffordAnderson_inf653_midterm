@@ -1,5 +1,7 @@
 <?php
 
+$database = new Database();
+$db = $database->connect();
 require_once('../../models/Category.php');
 
 header('Access-Control-Allow-Origin: *');
