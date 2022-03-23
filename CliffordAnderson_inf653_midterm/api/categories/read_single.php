@@ -35,6 +35,6 @@ if($post->read_single()){
     );
 } else {
       echo json_encode(
-          array('message' => 'authorId Not Found')
+          array('message' => 'categoryId Not Found')
       );
   }
