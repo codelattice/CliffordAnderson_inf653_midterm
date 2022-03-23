@@ -26,9 +26,9 @@
       'author' => $post->author,
   );
 
-   print_r(json_encode($post_arr));
+  //print_r(json_encode($post_arr));
 
-/*if($post->read_single()){
+if($post->read_single()){
     echo json_encode(
       ($post_arr)
     );
@@ -36,4 +36,4 @@
       echo json_encode(
           array('message' => 'authorId Not Found')
       );
-  }*/
+  }
