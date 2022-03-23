@@ -11,7 +11,7 @@
   $db = $database->connect();
 
   // Instantiate blog post object
-  $categorical = new Author($db);
+  $categorical = new Category($db);
 
   // Get ID
   $categorical->id = isset($_GET['id']) ? $_GET['id'] : die();
