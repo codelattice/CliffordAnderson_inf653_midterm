@@ -23,9 +23,7 @@
   // Create array
   $post_arr = array(
       'id' => $post->id,
-      //'quote' => $post->title,
       'author' => $post->author,
-      //'category' => $post->category_id
   );
 
   //Make JSON
@@ -33,7 +31,7 @@
 
 if($post->read_single()){
     echo json_encode(
-      ($post_array)
+      ($post_arr)
     );
 } else {
       echo json_encode(
