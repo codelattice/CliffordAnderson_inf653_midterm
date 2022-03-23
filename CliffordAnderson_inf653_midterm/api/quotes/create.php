@@ -28,7 +28,7 @@
   //Create post
   if($post->create()){
     echo json_encode(
-      array('message' => 'Post Created')
+      array('id' => $db->lastInsertId(), 'quote' => $post->quote, 'authorId' => $post->authorId, 'categoryId' => $post->categoryId)
     );
 } else {
       echo json_encode(
