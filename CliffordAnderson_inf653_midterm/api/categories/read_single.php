@@ -11,30 +11,30 @@
   $db = $database->connect();
 
   // Instantiate blog post object
-  $categorical = new Category($db);
+  $post = new Category($db);
 
   // Get ID
-  $categorical->id = isset($_GET['id']) ? $_GET['id'] : die();
+  $post->id = isset($_GET['id']) ? $_GET['id'] : die();
 
   // Get post
 
-  $categorical->read_single();
+  $post->read_single();
 
   // Create array
   $post_arr = array(
-      'id' => $categorical->id,
-      'category' => $categorical->category,
+      'id' => $post->id,
+      'category' => $post->category_id,
   );
 
   //Make JSON
   //print_r(json_encode($post_arr));
 
-if($categorical->read_single()){
+if($post->read_single()){
     echo json_encode(
       ($post_arr)
     );
 } else {
       echo json_encode(
-          array('message' => 'categoryId Not Found')
+          array('message' => 'authorId Not Found')
       );
   }
