@@ -24,8 +24,18 @@
   $quote->authorId = $data->authorId;
   $quote->categoryId = $data->categoryId;
 
-  $authorIdExists = IsValid($quote->authorId,$quote);
-  $categoryIdExists = IsValid($quote->categoryId,$quote);
+  function isValid($id, $model) {
+    $model->id = $id;
+    $modelResult = $model->read_single();
+    return $modelResult;
+  }
+
+  // if authorId exists:
+   $authorExists = isValid($authorId, $author;
+  // if categoryId exists:
+  $categoryExists = isValid($categoryId, $category)
+  // if quote id exists:
+  $idExists = isValid($id, $quote)
 
   if(!$categoryIdExists){
     echo json_encode(
@@ -34,6 +44,11 @@
   }else if(!$authorIdExists){
     echo json_encode(
         array('message' => 'authorId Not Found')
+    );
+  }
+  else if (!quoteIdExists){
+    echo json_encode(
+      array('message' => 'authorId Not Found')
     );
   }
 }
