@@ -60,7 +60,7 @@
       $this->id = $row['id'];
       $this->author = $row['author'];
         
-      return $stmt.rowCount();
+      return $stmt->rowCount();
       }
       //Create Post
       public function create(){
