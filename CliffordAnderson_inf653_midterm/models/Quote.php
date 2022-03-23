@@ -51,8 +51,7 @@
       FROM
         '.$this->table.' q
       WHERE
-        q.id = ?
-        LIMIT 0,1';
+        q.id = ?';
         
       // Prepare statement
       $stmt = $this->conn->prepare($query);
