@@ -23,9 +23,9 @@
   // Create array
   $post_arr = array(
       'id' => $post->id,
-      'quote' => $post->title,
+      //'quote' => $post->title,
       'author' => $post->author,
-      'category' => $post->category_id
+      //'category' => $post->category_id
   );
 
   //Make JSON
