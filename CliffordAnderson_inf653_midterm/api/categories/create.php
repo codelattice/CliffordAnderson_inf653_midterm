@@ -1,33 +1,3 @@
-/*<?php
-  //Headers
-  
-  /*include_once '../../config/Database.php';
-  include_once '../../models/Category.php';
-
-  // Instantiate DB & connect
-  $database = new Database();
-  $db = $database->connect();
-
-  // Instantiate blog post object
-  $post = new Category($db);
-
-  // Get raw posted data
-
-  $data = json_decode(file_get_contents("php://input"));
-  $post->category = $data->category;
-
-  //Create post
-  if($post->create()){
-    //lastInsertId($db);
-    echo json_encode(
-      array('id' => $db->lastInsertId(), 'category' => $post->category)
-    );
-} else {
-      echo json_encode(
-          array('message' => 'Post Not Created')
-      );
-  }*/
-
 <?php
   //Headers
   header('Access-Control-Allow-Origin: *');
@@ -37,7 +7,7 @@
   Access-Control-Allow-Methods, Authorization, X-Requested-With');
   
   include_once '../../config/Database.php';
-  include_once '../../models/Category.php';
+  include_once '../../models/Post.php';
 
   // Instantiate DB & connect
   $database = new Database();
@@ -46,7 +16,7 @@
   // Instantiate blog post object
   $post = new Category($db);
 
-  $post->category = isset($_GET['category']) ? $_GET['category'] : die();
+//  $post->category = isset($_GET['category']) ? $_GET['category'] : die();
 
   // Get raw posted data
 
