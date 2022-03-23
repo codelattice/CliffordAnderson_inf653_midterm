@@ -94,7 +94,7 @@
       $query = 'INSERT */
   }
 
- /*     public function delete(){
+      public function delete(){
         //Create query
         $query = 'DELETE FROM '.$this->table.'
           WHERE
@@ -104,10 +104,10 @@
         $stmt = $this->conn->prepare($query);
 
         //Clean data
-        //$this->author = htmlspecialchars(strip_tags($this->author));
+        $this->id = htmlspecialchars(strip_tags($this->id));
 
         //Bind data
-        $stmt->bindParam(':author', $this->author);
+        $stmt->bindParam(':id', $this->id);
 
         //Execute query
 
@@ -120,4 +120,4 @@
 
         return false;
       }
-*/
+
