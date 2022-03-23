@@ -38,20 +38,13 @@
 
         //Create query
         $query = 'SELECT
-        c.name as category_name,
-        p.id,
-        p.category_id,
-        p.title,
-        p.body,
-        p.author,
-        p.created_at
+        c.id as id,
+        c.author as author
       FROM
-        '.$this->table.' p
-      LEFT JOIN
-        categories c ON p.category_id = c.id
+        '.$this->table.' c
       WHERE
-        p.id = ?
-        LIMIT 0,1';
+        c.id = ?
+      LIMIT 0,1';
         
       // Prepare statement
       $stmt = $this->conn->prepare($query);
@@ -62,11 +55,10 @@
       // Execute query
       $stmt->execute();
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
-      $this->title = $row['id'];
-      $this->body = $row['quote'];
-      $this->author = $row['author'];
-      $this->category_id = $row['category'];
+      $this->id = $row['id'];
+      $this->category = $row['category'];
       }
+    
       //Create Post
       public function create(){
         //Create query
