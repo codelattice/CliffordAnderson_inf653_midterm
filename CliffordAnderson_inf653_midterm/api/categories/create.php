@@ -19,14 +19,13 @@
   // Get raw posted data
 
   $data = json_decode(file_get_contents("php://input"));
-
-  $post->id = $data->id;
   $post->category = $data->category;
 
   //Create post
   if($post->create()){
+    //lastInsertId($db);
     echo json_encode(
-      array('message' => 'Post Created')
+      array('id' => lastInsertId(), 'category' => $post->category)
     );
 } else {
       echo json_encode(
