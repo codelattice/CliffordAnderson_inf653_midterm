@@ -94,7 +94,7 @@
       $query = 'INSERT */
   }
 
-      public function delete(){
+      /*public function delete(){
         //Create query
         $query = 'DELETE FROM '.$this->table.'
           WHERE
@@ -120,5 +120,4 @@
         printf("Error: %s.\n", $stmt->error);
 
         return false;
-      }
-
+      }*/
