@@ -15,7 +15,7 @@ if ($method === 'OPTIONS') {
 }
 else if ($method === 'GET'){
     if (isset($id) === TRUE){
-        require('read_once.php');
+        require('read_single.php');
     }
     else{
         require('read.php');
