@@ -30,7 +30,7 @@
 
 if($post->read_single()){
     echo json_encode(
-      ($post)
+      ($post_arr)
     );
 } else {
       echo json_encode(
