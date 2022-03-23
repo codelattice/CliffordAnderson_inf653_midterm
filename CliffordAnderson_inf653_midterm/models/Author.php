@@ -23,8 +23,7 @@
                 authors.id as id,
                 authors.author as author
               FROM
-                '.$this->table.'
-                LIMIT 0,1';
+                '.$this->table.'';
           //Prepare statement
           $stmt = $this->conn->prepare($query);
 
@@ -46,7 +45,8 @@
       FROM
         '.$this->table.' a
       WHERE
-        a.id = ?';
+        a.id = ?
+        LIMIT 0,1';
         
       // Prepare statement
       $stmt = $this->conn->prepare($query);
