@@ -38,11 +38,20 @@
 
         //Create query
         $query = 'SELECT
-                categories.id as id,
-                categories.category as category
+        c.name as category_name,
+        p.id,
+        p.category_id,
+        p.title,
+        p.body,
+        p.author,
+        p.created_at
       FROM
-        '.$this->table.'';
-        }
+        '.$this->table.' p
+      LEFT JOIN
+        categories c ON p.category_id = c.id
+      WHERE
+        p.id = ?
+        LIMIT 0,1';
         
       // Prepare statement
       $stmt = $this->conn->prepare($query);
@@ -54,36 +63,12 @@
       $stmt->execute();
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
       $this->title = $row['id'];
-      /*$this->body = $row['quote']; COMMENTED OUT FOR TESTING PURPOSES; MAY NEED TO BE RESTORED LATER
-      $this->author = $row['author'];*/
+      $this->body = $row['quote'];
+      $this->author = $row['author'];
       $this->category_id = $row['category'];
       }
       //Create Post
-      /*public function create(){*/
-        //Create query
-        /*$query = 'INSERT INTO '.$this->table.' COMMENTED OUT FOR TESTING PURPOSES; RESTORE LATER
-          VALUES
-             category = :category';
-          
-          //Prepare statement
-        $stmt = $this->conn->prepare($query);
-
-        //Bind data
-        $stmt->bindParam(':category', $this->category);
-
-        //Execute query
-
-        if($stmt->execute()){
-          return true;
-        }
-
-        //Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
-      }*/
-        
-       public function create(){
+      public function create(){
         //Create query
         $query = 'INSERT INTO '.$this->table.'
           SET
