@@ -23,7 +23,7 @@
   // Create array
   $post_arr = array(
       'id' => $post->id,
-      'category' => $post->category_id,
+      'category' => $post->category,
   );
 
   //Make JSON
