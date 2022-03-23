@@ -18,3 +18,6 @@ if ($method === 'OPTIONS') {
 else if ($method === 'GET'){
     require('read.php');
 }
+else if ($method === 'POST'){
+    require('create.php');
+}
