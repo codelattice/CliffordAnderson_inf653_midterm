@@ -25,7 +25,7 @@
   if($post->create()){
     //lastInsertId($db);
     echo json_encode(
-      array('id' => lastInsertId(), 'category' => $post->category)
+      array('id' => $db->lastInsertId(), 'category' => $post->category)
     );
 } else {
       echo json_encode(
