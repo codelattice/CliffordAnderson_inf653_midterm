@@ -44,19 +44,14 @@
 
         //Create query
         $query = 'SELECT
-        c.name as category_name,
-        p.id,
-        p.category_id,
-        p.title,
-        p.body,
-        p.author,
-        p.created_at
+        q.id as id,
+        q.quote as quote,
+        q.authorId as authorId
+        q.categoryId as categoryId
       FROM
-        '.$this->table.' p
-      LEFT JOIN
-        categories c ON p.category_id = c.id
+        '.$this->table.' q
       WHERE
-        p.id = ?
+        q.id = ?
         LIMIT 0,1';
         
       // Prepare statement
@@ -70,8 +65,8 @@
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
       $this->title = $row['id'];
       $this->body = $row['quote'];
-      $this->author = $row['author'];
-      $this->category_id = $row['category'];
+      $this->authorId = $row['authorId'];
+      $this->categoryId = $row['categoryId'];
       }
       //Create Post
       public function create(){
