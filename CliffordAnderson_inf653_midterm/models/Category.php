@@ -57,6 +57,8 @@
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
       $this->id = $row['id'];
       $this->category = $row['category'];
+        
+       return $stmt->rowCount();
       }
     
       //Create Post
