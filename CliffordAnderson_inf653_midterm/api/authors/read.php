@@ -4,14 +4,14 @@
   header('Content-Type: application/json');
   
   include_once '../../config/Database.php';
-  include_once '../../models/Post.php';
+  include_once '../../models/Author.php';
 
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
   // Instantiate blog post object
-  $post = new Post($db);
+  $post = new Author($db);
 
   // Blog post query
   $result = $post->read();
@@ -28,10 +28,10 @@
         extract($row);
         $post_item = array(
            'id' => $id,
-           'quote' => $quote,
+           //'quote' => $quote,
            //'body' => html_entity_decode($body),
            'author' => $author,
-           'category' => $category
+           //'category' => $category
         );
 
         // Push to "data"
