@@ -7,23 +7,23 @@
   Access-Control-Allow-Methods, Authorization, X-Requested-With');
   
   include_once '../../config/Database.php';
-  include_once '../../models/Post.php';
+  include_once '../../models/Quote.php';
 
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
   // Instantiate blog post object
-  $post = new Post($db);
+  $post = new Quote($db);
 
   // Get raw posted data
 
   $data = json_decode(file_get_contents("php://input"));
 
-  $post->title = $data->title;
-  $post->body = $data->body;
-  $post->author = $data->author;
-  $post->category_id = $data->category_id;
+  $post->id = $data->id;
+  $post->quote = $data->quote;
+  $post->authorId = $data->authorId;
+  $post->categoryId = $data->categoryId;
 
   //Create post
   if($post->create()){
