@@ -28,9 +28,6 @@
         extract($row);
         $post_item = array(
            'id' => $id,
-           'quote' => $quote,
-           //'body' => html_entity_decode($body),
-           'author' => $author,
            'category' => $category
         );
 
