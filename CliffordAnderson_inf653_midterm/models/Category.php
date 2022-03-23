@@ -72,7 +72,6 @@
         //Create query
         $query = 'INSERT INTO '.$this->table.'
           SET
-             id = :id,,
              category = :category';
           
           //Prepare statement
