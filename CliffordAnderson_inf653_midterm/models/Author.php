@@ -97,7 +97,7 @@
         //Create query
         $query = 'DELETE FROM '.$this->table.'
           WHERE
-             id = :id';
+             authors.id = :id';
           
           //Prepare statement
         $stmt = $this->conn->prepare($query);
