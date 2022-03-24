@@ -31,6 +31,6 @@ if ($method === 'PUT'){
     require('update.php');
 }
 
-/*if ($method === 'DELETE'){
+if ($method === 'DELETE'){
     require('delete.php');
-}*/
+}
