@@ -20,11 +20,9 @@
 
   $data = json_decode(file_get_contents("php://input"));
   
-  if (isset($data->id)){
+  /*if (isset($data->id)){
     $post->id = $data->id;
-  }
-
-  if(isset(
+  }*/
 
   //Delete entry and return array
   if($post->delete()){
