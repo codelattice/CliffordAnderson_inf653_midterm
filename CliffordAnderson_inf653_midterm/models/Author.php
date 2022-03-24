@@ -93,11 +93,11 @@
         $query = 'UPDATE '.$this->table.'
           SET a*/
 
-      /*public function delete(){
+      public function delete(){
         //Create query
-        $query = 'DELETE FROM '.$this->table.' a
+        $query = 'DELETE FROM '.$this->table.'
           WHERE
-             a.id = :id';
+             id = :id';
       
           //Prepare statement
         $stmt = $this->conn->prepare($query);
@@ -110,11 +110,13 @@
 
         //Execute query
 
-        if($stmt->execute()){
-          return array("id" => $this->id);
+       if($stmt->execute()){
+          return true;
         }
-        else{
-          return array('message' => 'Nothing To Delete');
-        }
-      }*/
+
+        //Print error if something goes wrong
+        printf("Error: %s.\n", $stmt->error);
+
+        return false;
+      }
   }
