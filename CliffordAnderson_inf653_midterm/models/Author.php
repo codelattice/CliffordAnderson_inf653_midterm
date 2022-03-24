@@ -94,12 +94,12 @@
         $query = 'UPDATE '.$this->table.'
           SET a*/
 
-      public function delete(){
+      /*public function delete(){
         //Create query
         $query = 'DELETE FROM '.$this->table.' a
           WHERE
              a.id = :id';
-          
+      
           //Prepare statement
         $stmt = $this->conn->prepare($query);
 
@@ -117,5 +117,5 @@
         else{
           return array('message' => 'Nothing To Delete');
         }
-      }
+      }*/
   }
