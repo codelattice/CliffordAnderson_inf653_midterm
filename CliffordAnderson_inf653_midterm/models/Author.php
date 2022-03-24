@@ -80,16 +80,15 @@
 
         //Execute query
 
-        if($stmt->execute()){
-          //echo json_encode{
-          //  array('id' => $db->lastInsertId(), 'author' => $this->author)
-          //    );
+       if($stmt->execute()){
           return true;
-          //}
         }
+
+        //Print error if something goes wrong
+        printf("Error: %s.\n", $stmt->error);
+
         return false;
       }
-    
       /*public function modify(){
         $query = 'UPDATE '.$this->table.'
           SET a*/
