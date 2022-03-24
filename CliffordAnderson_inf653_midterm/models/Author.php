@@ -111,7 +111,7 @@
         //Execute query
 
         if($stmt->execute()){
-          return array('author' => this->author);
+          return array($this->table);
         }
         else{
           return array('message' => 'Nothing To Delete');
