@@ -83,41 +83,37 @@
         if($stmt->execute()){
           return true;
         }
-
         //Print error if something goes wrong
         printf("Error: %s.\n", $stmt->error);
 
         return false;
       }
     
-   /* public function update(){
-      $query = 'INSERT */
-  }
+      /*public function modify(){
+        $query = 'UPDATE '.$this->table.'
+          SET a*/
 
-      /*public function delete(){
+      public function delete(){
         //Create query
         $query = 'DELETE FROM '.$this->table.'
           WHERE
-             authors.id = ?
-             LIMIT 0,1';
+             author = :author';
           
           //Prepare statement
         $stmt = $this->conn->prepare($query);
 
         //Clean data
-        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->author = htmlspecialchars(strip_tags($this->author));
 
         //Bind data
-        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':author', $this->author);
 
         //Execute query
 
         if($stmt->execute()){
-          return true;
+          return array('author' => this->author);
         }
-
-        //Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
-      }*/
+        else{
+          return array('message' => 'Nothing To Delete');
+        }
+      }
