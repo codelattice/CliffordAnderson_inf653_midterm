@@ -25,7 +25,7 @@
   //Delete entry and return array
   if($post->delete()){
     echo json_encode(
-      array('id' => $this-id)
+      array('id' => $this->id)
     );
 } else {
       echo json_encode(
