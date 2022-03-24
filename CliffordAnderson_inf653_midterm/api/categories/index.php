@@ -31,6 +31,6 @@ if ($method === 'PUT'){
     require('update.php');
 }
 
-if ($method === 'GET'){
+/*if ($method === 'GET'){
     require('delete.php');
-}
+}*/
