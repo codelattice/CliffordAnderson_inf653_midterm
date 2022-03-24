@@ -111,7 +111,7 @@
         //Execute query
 
         if($stmt->execute()){
-          return array($this->table);
+          return array($obj);
         }
         else{
           return array('message' => 'Nothing To Delete');
