@@ -32,5 +32,7 @@ if ($method === 'PUT'){
 }
 
 if ($method === 'DELETE'){
+    if (isset($_DELETE['id]){
         require('delete.php');
+        }
 }
