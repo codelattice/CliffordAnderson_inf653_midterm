@@ -81,16 +81,13 @@
         //Execute query
 
         if($stmt->execute()){
-          echo json_encode{
-            array('id' => $db->lastInsertId(), 'author' => $this->author)
-              );
-          }
+          //echo json_encode{
+          //  array('id' => $db->lastInsertId(), 'author' => $this->author)
+          //    );
+          return true;
+          //}
         }
-        else {
-          echo json_encode(
-            array('message' => 'Author Not Created')
-          );
-        }
+        return false;
       }
     
       /*public function modify(){
