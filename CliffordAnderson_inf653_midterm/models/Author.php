@@ -81,7 +81,10 @@
         //Execute query
 
         if($stmt->execute()){
-          return array('id' => $db->lastInsertId(), 'author' => $this->author)
+          echo json_encode{
+            array('id' => $db->lastInsertId(), 'author' => $this->author)
+              );
+          }
         }
         else {
           echo json_encode(
