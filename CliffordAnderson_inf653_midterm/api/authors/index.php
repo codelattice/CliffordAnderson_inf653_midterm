@@ -15,7 +15,7 @@ if ($method === 'OPTIONS') {
 }
 
 if ($method === 'GET'){
-    if (isset($_GET['id']) ){
+    if (isset($_GET['id'])){
         require('read_single.php');
     }
     else{
@@ -32,5 +32,7 @@ if ($method === 'PUT'){
 }
 
 if ($method === 'DELETE'){
-    require('delete.php');
+    if(isset($_DELETE['id'])){
+        require('delete.php');
+    }
 }
