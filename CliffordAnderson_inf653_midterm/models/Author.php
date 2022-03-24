@@ -97,21 +97,21 @@
         //Create query
         $query = 'DELETE FROM '.$this->table.'
           WHERE
-             author = :author';
+             id = :id';
           
           //Prepare statement
         $stmt = $this->conn->prepare($query);
 
         //Clean data
-        $this->author = htmlspecialchars(strip_tags($this->author));
+        $this->id = htmlspecialchars(strip_tags($this->id));
 
         //Bind data
-        $stmt->bindParam(':author', $this->author);
+        $stmt->bindParam(':id', $this->id);
 
         //Execute query
 
         if($stmt->execute()){
-          return array($obj);
+          return array("id" => $this->id);
         }
         else{
           return array('message' => 'Nothing To Delete');
