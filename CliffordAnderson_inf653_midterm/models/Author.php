@@ -65,9 +65,9 @@
       //Create Post
       public function create(){
         //Create query
-        $query = 'INSERT INTO '.$this->table.'
+        $query = 'INSERT INTO '.$this->table.' a
           SET
-             author = :author';
+             a.author = :author';
           
           //Prepare statement
         $stmt = $this->conn->prepare($query);
@@ -81,12 +81,13 @@
         //Execute query
 
         if($stmt->execute()){
-          return true;
+          return array('id' => $db->lastInsertId(), 'author' => $this->author)
         }
-        //Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
+        else {
+          echo json_encode(
+            array('message' => 'Author Not Created')
+          );
+        }
       }
     
       /*public function modify(){
@@ -95,9 +96,9 @@
 
       public function delete(){
         //Create query
-        $query = 'DELETE FROM '.$this->table.'
+        $query = 'DELETE FROM '.$this->table.' a
           WHERE
-             authors.id = :id';
+             a.id = :id';
           
           //Prepare statement
         $stmt = $this->conn->prepare($query);
@@ -117,3 +118,4 @@
           return array('message' => 'Nothing To Delete');
         }
       }
+  }
