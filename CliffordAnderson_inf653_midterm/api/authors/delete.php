@@ -6,7 +6,12 @@
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
   Access-Control-Allow-Methods, Authorization, X-Requested-With');*/
   
+  include_once '../../config/Databse.php';
   include_once '../../models/Author.php';
+
+  $database = new Database(); // not needed
+  $db = $database->connect(); // not needed
+
 
   // Instantiate blog post object
   $post = new Author($db);
