@@ -65,9 +65,9 @@
       //Create Post
       public function create(){
         //Create query
-        $query = 'INSERT INTO '.$this->table.' a
+        $query = 'INSERT INTO '.$this->table.' 
           SET
-             a.author = :author';
+             author = :author';
           
           //Prepare statement
         $stmt = $this->conn->prepare($query);
